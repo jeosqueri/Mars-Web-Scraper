@@ -97,8 +97,8 @@ def scrape():
         'news_p': news_p,
         'featured_image': featured_image_url,
         'mars_facts': mars_df,
-        'hem_title': title,
-        'hem_img': img_url
+        'titles': title,
+        'img_url': img_url
     }
 
     browser.quit()

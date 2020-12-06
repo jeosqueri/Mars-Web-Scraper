@@ -13,18 +13,49 @@
   <div class="container">
 
     <div class="jumbotron text-center">
-      <h1>Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find An Awesome Deal!</a></p>
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data!</a></p>
     </div>
 
-    <!-- Craigslist Listings -->
     <div class="row" id="mars-news">
       <div class="col-md-12">
+        <h3>Latest Mars News</h3>
         <h4 class="heading">{{mars_dict.news_title}}</h4>
+        <p>{{mars_dict.news_p}}</p>
       </div>
     </div>
 
-  </div>
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Featured Image</h3>
+            <img src="{{ mars_dict.featured_image }}">
+        </div>
+        <div class="col-md-4">
+            <h4>Mars Facts</h4>
+                {{ mars_dict.mars_facts | safe }}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            {% for mars in mars_dict %}
+            <div class="col-6-border">
+                <div>
+                    <img width="400 px" height="500 px" src="{{mars.img_url | safe }}">
+                </div>
+                <div>
+                    <h3>{{mars.titles}}</h3> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    
+</div>
+  
 </body>
 
 </html>
