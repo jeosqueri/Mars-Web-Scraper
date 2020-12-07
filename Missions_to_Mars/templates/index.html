@@ -28,31 +28,32 @@
     <div class="row">
         <div class="col-md-8">
             <h3>Featured Image</h3>
-            <img src="{{ mars_dict.featured_image }}">
+            <img src="{{ mars_dict.featured_image }}" width="600px", height="400px">
         </div>
         <div class="col-md-4">
             <h4>Mars Facts</h4>
-                {{ mars_dict.mars_facts | safe }}
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-6">
-            {% for mars in mars_dict %}
-            <div class="col-6-border">
-                <div>
-                    <img width="400 px" height="500 px" src="{{mars.img_url | safe }}">
-                </div>
-                <div>
-                    <h3>{{mars.titles}}</h3> 
-                </div>
+            <div style="width: 450px; height: 200px; font-size: 15px; margin-bottom: 65px">
+              {{ mars_dict.mars_facts | safe }}
             </div>
-            {% endfor %}
         </div>
     </div>
 
-
+    <div class = "card-deck">
+      <div class="col-md-12">
+        <div class="row">
+          {% for mars in mars_dict %}
+          <div class="col-md-6">
+            <div class="card">
+              <img class="card-img-top" src="{{mars.img_url}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{mars.titles}}</h5>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
     
 </div>
   
