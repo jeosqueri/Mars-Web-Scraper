@@ -33,30 +33,38 @@
         <div class="col-md-4">
             <h4>Mars Facts</h4>
             <div style="width: 450px; height: 200px; font-size: 15px; margin-bottom: 65px">
-              {{ mars_dict.mars_facts | safe }}
+              {{ mars_dict.mars_facts | safe}}
             </div>
         </div>
     </div>
 
+
     <div class = "card-deck">
       <div class="col-md-12">
         <div class="row">
-          {% for mars in mars_dict %}
+          <!-- {% for hempishere_image_urls in mars_dict %} -->
           <div class="col-md-6">
             <div class="card">
-              <img class="card-img-top" src="{{mars.img_url}}" alt="Card image cap">
+              <a href="{{mars_dict.hempishere_image_urls['img_url']}}">
+                <img class="card-img-top" src="{{mars_dict.hempishere_image_urls['img_url']}}" alt="Card image cap">
+              </a>
               <div class="card-body">
-                <h5 class="card-title">{{mars.titles}}</h5>
+                <h5 class="card-title">{{mars_dict.hempishere_image_urls['titles']}}</h5>
               </div>
             </div>
           </div>
-          {% endfor %}
+          <!-- {% endfor %} -->
         </div>
       </div>
     </div>
     
+    
 </div>
-  
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

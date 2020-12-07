@@ -15,7 +15,7 @@ def scrape():
     browser = init_browser()
     #mars_dict = {}
 
-    url = 'https://mars.nasa.gov/news'
+    url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
 
     soup = bs(browser.html, 'html.parser')
@@ -97,11 +97,10 @@ def scrape():
         'news_p': news_p,
         'featured_image': featured_image_url,
         'mars_facts': mars_df,
-        'titles': title,
-        'img_url': img_url
+        'hempishere_image_urls': hempishere_image_urls
     }
 
     browser.quit()
     
-    print(mars_dict)
+    #print(mars_dict)
     return mars_dict
