@@ -71,6 +71,7 @@ def scrape():
 
     #Create loop
     for i in items:
+        hem_dict = {}
         #Get titles
         title = i.find('h3').text
     
@@ -85,9 +86,14 @@ def scrape():
     
         #Get full image source
         img_url = main_url + soup.find('img', class_='wide-image')['src']
+
+        hem_dict = {
+        "titles": title,
+        "img_url": img_url
+        }
     
         #Append the img names and links to a list of dicts
-        hempishere_image_urls.append({"titles": title, "img_url": img_url})
+        hempishere_image_urls.append(hem_dict)
 
         #mars_dict["titles"] = title
         #mars_dict["img_url"] = img_url
