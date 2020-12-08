@@ -13,7 +13,8 @@ def scrape():
 
     #NASA Mars News
     browser = init_browser()
-    #mars_dict = {}
+    
+    #NOTE:If error occurs that "list index is out of range", try adding '/' to the end of this url here and in jupyter. For some reason, this URL keeps changing what is required
 
     url = 'https://mars.nasa.gov/news'
     browser.visit(url)
@@ -26,11 +27,7 @@ def scrape():
     all_paragraph = soup.find_all(name='div', class_='article_teaser_body')
     news_p = all_paragraph[0].text.strip()
 
-    #Add values to dictionary
-    #mars_dict['news_title']= news_title
-    #mars_dict['news_p']= news_p
-
-    #Featured Image- How does this go in dict?*****
+    #Featured Image
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
 
@@ -41,8 +38,7 @@ def scrape():
     main_url = 'https://www.jpl.nasa.gov'
 
     featured_image_url = (main_url + img_url)
-    #mars_dict['featured_image']= featured_image_url
-
+    
     #Mars Facts
     url = 'https://space-facts.com/mars/'
     browser.visit(url)
@@ -51,8 +47,6 @@ def scrape():
     df = tables[0]
 
     mars_df = df.to_html(classes= 'dataframe')
-
-    #mars_dict['mars_facts']= mars_df
 
     #Mars Hemispheres
 
@@ -63,10 +57,8 @@ def scrape():
 
     items = soup.find_all(name='div', class_='item')
 
-    #Create empty list for URLS- this will be the list of dicts you append to
     hempishere_image_urls = []
 
-    #Store main url
     main_url = 'https://astrogeology.usgs.gov'
 
     #Create loop
@@ -95,8 +87,6 @@ def scrape():
         #Append the img names and links to a list of dicts
         hempishere_image_urls.append(hem_dict)
 
-        #mars_dict["titles"] = title
-        #mars_dict["img_url"] = img_url
 
     mars_dict = {
         'news_title': news_title,
@@ -108,5 +98,4 @@ def scrape():
 
     browser.quit()
     
-    #print(mars_dict)
     return mars_dict
