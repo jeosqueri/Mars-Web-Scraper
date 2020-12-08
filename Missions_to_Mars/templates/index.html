@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -38,23 +39,21 @@
         </div>
     </div>
 
-
-    <div class = "card-deck" style="display: flex;">
+    <h3 style="padding-top: 50px; text-align: center;">Hemispheres</h3>
+    <div class = "card-deck">
       <div class="col-md-12">
         <div class="row">
           {% for hem_dict in mars_dict.hempishere_image_urls %}
-          <div class="col-md-6">
-            <div class="card">
-              <a href="{{hem_dict.img_url}}">
-                <img class="card-img-top" src="{{hem_dict.img_url}}" alt="Card image cap">
-              </a>
+         <div class="col-md-3">
+            <div class="card" style="max-width: 18rem;">
+                <img class="card-img-top" src="{{hem_dict.img_url}}" alt="Card image cap" style='width: 200px; height: 200px; align-content: center;'>
               <div class="card-body">
-                <h5 class="card-title">{{hem_dict.titles}}</h5>
+                <h4 class="card-title">{{hem_dict.titles}}</h4>
               </div>
             </div>
-          </div>
+         </div>
           {% endfor %}
-        </div>
+       </div>
       </div>
     </div>
     

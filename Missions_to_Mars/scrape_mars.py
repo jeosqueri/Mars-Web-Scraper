@@ -15,7 +15,7 @@ def scrape():
     browser = init_browser()
     #mars_dict = {}
 
-    url = 'https://mars.nasa.gov/news/'
+    url = 'https://mars.nasa.gov/news'
     browser.visit(url)
 
     soup = bs(browser.html, 'html.parser')
