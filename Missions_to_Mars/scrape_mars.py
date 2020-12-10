@@ -45,6 +45,8 @@ def scrape():
 
     tables = pd.read_html(url)
     df = tables[0]
+    df = df.set_index(0)
+    df = df.rename(columns={0:"Description", 1: "Value"})
 
     mars_df = df.to_html(classes= 'dataframe')
 
