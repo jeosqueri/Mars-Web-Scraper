@@ -1,4 +1,4 @@
-# web_scraping_challenge
+# Mars Facts Web Scraper
 
 For this assignment, I was tasked with building a web application that scrapes various websites for data related to the Mission to Mars, and displaying that information in a HTML page.
 
